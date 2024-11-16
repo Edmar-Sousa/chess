@@ -1,7 +1,7 @@
 #ifndef  __BOARD_HPP__
 #define  __BOARD_HPP__
 
-#include "Contants.hpp"
+#include "Constants.hpp"
 
 
 class Board

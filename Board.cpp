@@ -1,5 +1,5 @@
 #include "Board.hpp"
-#include "Contants.hpp"
+#include "Constants.hpp"
 
 
 Board::Board() 
