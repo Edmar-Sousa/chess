@@ -9,6 +9,9 @@
 class UI {
   Board board;
 
+  Color blackHouse;
+  Color whiteHouse;
+
   void drawTiles();
 
 public:
