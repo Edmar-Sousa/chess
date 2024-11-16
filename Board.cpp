@@ -1,27 +1,24 @@
 #include "Board.hpp"
 #include "Constants.hpp"
 
+Board::Board() {
+  int invert = 1;
 
-Board::Board() 
-{
-    int invert = 1;
+  for (int index = 0; index < COLS * ROWS; index++) {
+    board[index] = (index + invert) % 2;
 
-    for (int index = 0; index < COLS * ROWS; index++) {
-        board[index] = (index + invert) % 2;
-
-        if ((index + 1) % ROWS == 0) 
-            invert = !invert;
-    }
+    if ((index + 1) % ROWS == 0)
+      invert = !invert;
+  }
 }
 
+void Board::draw() {
+  std::cout << "\n";
 
-void Board::draw() 
-{
-    std::cout << "\n";
+  for (int index = 0; index < COLS * ROWS; index++)
+    std::cout << ' ' << board[index] << ((index + 1) % ROWS == 0 ? '\n' : ' ');
 
-    for (int index = 0; index < COLS * ROWS; index++)
-        std::cout << ' ' << board[index] << ((index + 1) % ROWS == 0 ? '\n' : ' ');
-    
-    std::cout << "\n";
+  std::cout << "\n";
 }
 
+int *Board::getBoard() { return this->board; }

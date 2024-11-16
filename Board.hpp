@@ -1,17 +1,16 @@
-#ifndef  __BOARD_HPP__
-#define  __BOARD_HPP__
+#ifndef __BOARD_HPP__
+#define __BOARD_HPP__
 
 #include "Constants.hpp"
 
-
-class Board
-{
-    int board[COLS * ROWS];
+class Board {
+  int board[COLS * ROWS];
 
 public:
-    Board();
+  Board();
 
-    void draw();
+  int *getBoard();
+  void draw();
 };
 
 #endif
