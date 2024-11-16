@@ -9,8 +9,6 @@ UI::UI(Board board) {
   blackHouse = {183, 192, 216, 255};
   whiteHouse = {232, 237, 249, 255};
 
-  std::cout << "WINDOW: " << WINDOW_WIDTH << 'x' << WINDOW_HEIGHT << std::endl;
-
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Chess Engine");
   SetTargetFPS(FPS);
 }
@@ -41,8 +39,9 @@ void UI::drawTiles() {
     for (int row = 0; row < ROWS; row++) {
       house = table[index++] ? whiteHouse : blackHouse;
 
-      DrawRectangle(col * BOARD_TILE_SIZE, row * BOARD_TILE_SIZE,
-                    BOARD_TILE_SIZE, BOARD_TILE_SIZE, house);
+      DrawRectangle(POSITION_TILE(col, BOARD_LEFT_PADDING),
+                    POSITION_TILE(row, BOARD_TOP_PADDING), BOARD_TILE_SIZE,
+                    BOARD_TILE_SIZE, house);
     }
   }
 }

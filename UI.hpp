@@ -5,6 +5,7 @@
 #include "Constants.hpp"
 
 #define FPS 60
+#define POSITION_TILE(pos, padding) pos *BOARD_TILE_SIZE + padding
 
 class UI {
   Board board;
