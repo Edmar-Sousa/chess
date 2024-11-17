@@ -4,7 +4,7 @@
 #include "Constants.hpp"
 
 class Board {
-  int board[COLS * ROWS];
+  int boardColors[COLS * ROWS];
 
 public:
   Board();
