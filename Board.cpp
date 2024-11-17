@@ -23,3 +23,4 @@ void Board::draw() {
 }
 
 int *Board::getBoard() { return this->boardColors; }
+int *Board::getPieces() { return this->pieces; }
