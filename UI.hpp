@@ -3,6 +3,7 @@
 
 #include "Board.hpp"
 #include "Constants.hpp"
+#include <raylib.h>
 
 #define FPS 60
 #define POSITION_TILE(pos, padding) pos *BOARD_TILE_SIZE + padding
@@ -28,7 +29,10 @@ class UI {
   Color whiteHouse;
   Color labelColor;
 
+  Texture2D piecesTexture;
+
   void drawTiles();
+  void drawPiece(int col, int row, int piece);
 
 public:
   UI(Board board);
