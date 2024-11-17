@@ -9,7 +9,7 @@ UI::UI(Board board) {
 
   blackHouse = {183, 192, 216, 255};
   whiteHouse = {232, 237, 249, 255};
-  labelColor = {52, 54, 76};
+  labelColor = {52, 54, 76, 255};
 
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Chess Engine");
   SetTargetFPS(FPS);
