@@ -1,6 +1,7 @@
 #include "UI.hpp"
 #include "Board.hpp"
 #include "Constants.hpp"
+#include <cstdint>
 #include <cstdlib>
 #include <raylib.h>
 
@@ -38,8 +39,6 @@ void UI::drawBoard() {
 
 void UI::drawTiles() {
   int *table = board.getBoard();
-  int *pieces = board.getPieces();
-
   int index = 0;
 
   Color house;
@@ -64,7 +63,6 @@ void UI::drawTiles() {
                     POSITION_TILE(row, BOARD_TOP_PADDING), BOARD_TILE_SIZE,
                     BOARD_TILE_SIZE, house);
 
-      drawPiece(col, row, pieces[index]);
       index += 1;
     }
   }
