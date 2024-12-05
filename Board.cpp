@@ -10,6 +10,13 @@ Board::Board() {
     if ((index + 1) % ROWS == 0)
       invert = !invert;
   }
+
+  pawnsWhite = 0x000000000000FF00;
+  rooksWhite = 0x0000000000000081;
+  knightsWhite = 0x0000000000000042;
+  bishopsWhite = 0x0000000000000024;
+  queensWhite = 0x0000000000000008;
+  kingsWhite = 0x0000000000000010;
 }
 
 void Board::draw() {
@@ -23,4 +30,8 @@ void Board::draw() {
 }
 
 int *Board::getBoard() { return this->boardColors; }
-int *Board::getPieces() { return this->pieces; }
+
+uint64_t Board::getPieces() {
+  return pawnsWhite & rooksWhite & knightsWhite & bishopsWhite & kingsWhite &
+         queensWhite;
+}
