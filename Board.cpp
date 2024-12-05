@@ -37,3 +37,4 @@ uint64_t Board::getPieces() {
 }
 
 uint64_t Board::getPawns() { return pawnsWhite; }
+uint64_t Board::getRooks() { return rooksWhite; }
