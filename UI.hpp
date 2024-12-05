@@ -32,6 +32,8 @@ class UI {
   Texture2D piecesTexture;
 
   void drawTiles();
+  void drawPawns();
+
   void drawPiece(int col, int row, int piece);
 
 public:
