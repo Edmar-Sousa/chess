@@ -2,6 +2,7 @@
 #define __BOARD_HPP__
 
 #include "Constants.hpp"
+#include <cstdint>
 
 // temporary to show image from pieces
 // change to bitboard
@@ -25,22 +26,19 @@ enum Pieces {
 
 class Board {
   int boardColors[COLS * ROWS];
-  int pieces[COLS * ROWS] = {
-    BLACK_ROOK, BLACK_KNIGHT, BLACK_BISHOP, BLACK_QUEEN, BLACK_KING, BLACK_BISHOP, BLACK_KNIGHT, BLACK_ROOK,
-    BLACK_PAWN, BLACK_PAWN,  BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN,
-    EMPTY, EMPTY,  EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-    EMPTY, EMPTY,  EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-    EMPTY, EMPTY,  EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-    EMPTY, EMPTY,  EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-    WHITE_PAWN, WHITE_PAWN,  WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN,
-    WHITE_ROOK, WHITE_KNIGHT, WHITE_BISHOP, WHITE_QUEEN, WHITE_KING, WHITE_BISHOP, WHITE_KNIGHT, WHITE_ROOK
-  };
+
+  uint64_t pawnsWhite;
+  uint64_t rooksWhite;
+  uint64_t knightsWhite;
+  uint64_t bishopsWhite;
+  uint64_t queensWhite;
+  uint64_t kingsWhite;
 
 public:
   Board();
 
   int *getBoard();
-  int *getPieces();
+  uint64_t getPieces();
 
   void draw();
 };
