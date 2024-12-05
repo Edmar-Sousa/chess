@@ -39,6 +39,7 @@ public:
 
   int *getBoard();
   uint64_t getPieces();
+  uint64_t getPawns();
 
   void draw();
 };
