@@ -17,7 +17,7 @@ UI::UI(Board board) {
   SetTargetFPS(FPS);
 }
 
-UI::~UI() { 
+UI::~UI() {
   UnloadTexture(piecesTexture);
   CloseWindow();
 }
@@ -70,38 +70,38 @@ void UI::drawTiles() {
   }
 }
 
-void UI::drawPiece(int col, int row, int piece)
-{
+void UI::drawPiece(int col, int row, int piece) {
   float posx = 0.0;
   float posy = 0.0;
 
   switch (piece) {
-    case Pieces::BLACK_PAWN:
-    case Pieces::BLACK_ROOK:
-    case Pieces::BLACK_KNIGHT:
-    case Pieces::BLACK_BISHOP:
-    case Pieces::BLACK_KING:
-    case Pieces::BLACK_QUEEN:
-      posx = (float) BOARD_TILE_SIZE * piece;
-      posy = 0.0;
-      break;
+  case Pieces::BLACK_PAWN:
+  case Pieces::BLACK_ROOK:
+  case Pieces::BLACK_KNIGHT:
+  case Pieces::BLACK_BISHOP:
+  case Pieces::BLACK_KING:
+  case Pieces::BLACK_QUEEN:
+    posx = (float)BOARD_TILE_SIZE * piece;
+    posy = 0.0;
+    break;
 
-    case Pieces::WHITE_PAWN:
-    case Pieces::WHITE_ROOK:
-    case Pieces::WHITE_KNIGHT:
-    case Pieces::WHITE_BISHOP:
-    case Pieces::WHITE_KING:
-    case Pieces::WHITE_QUEEN:
-      posx = (float) BOARD_TILE_SIZE * (piece - 6);
-      posy = BOARD_TILE_SIZE;
-      break;
+  case Pieces::WHITE_PAWN:
+  case Pieces::WHITE_ROOK:
+  case Pieces::WHITE_KNIGHT:
+  case Pieces::WHITE_BISHOP:
+  case Pieces::WHITE_KING:
+  case Pieces::WHITE_QUEEN:
+    posx = (float)BOARD_TILE_SIZE * (piece - 6);
+    posy = BOARD_TILE_SIZE;
+    break;
 
-    case Pieces::EMPTY:
-      return;
+  case Pieces::EMPTY:
+    return;
   }
 
-  Rectangle source = { posx, posy, BOARD_TILE_SIZE, BOARD_TILE_SIZE };
-  Vector2 position = { (float) col * BOARD_TILE_SIZE + BOARD_LEFT_PADDING, (float) row * BOARD_TILE_SIZE + BOARD_TOP_PADDING };
+  Rectangle source = {posx, posy, BOARD_TILE_SIZE, BOARD_TILE_SIZE};
+  Vector2 position = {(float)col * BOARD_TILE_SIZE + BOARD_LEFT_PADDING,
+                      (float)row * BOARD_TILE_SIZE + BOARD_TOP_PADDING};
 
   DrawTextureRec(piecesTexture, source, position, WHITE);
 }
