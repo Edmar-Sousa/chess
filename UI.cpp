@@ -67,12 +67,19 @@ void UI::drawTiles() {
 }
 
 void UI::drawPawns() {
-  uint64_t pawnsBitboard = board.getPawnsWhite();
-  uint64_t rooksBitboard = board.getRooksWhite();
+  uint64_t pawnsWhite = board.getPawnsWhite();
+  uint64_t rooksWhite = board.getRooksWhite();
   uint64_t bishopsWhite = board.getBishopsWhite();
   uint64_t knightsWhite = board.getKnightsWhite();
   uint64_t queenWhite = board.getQueensWhite();
   uint64_t kingWhite = board.getKingsWhite();
+
+  uint64_t pawnsBlack = board.getPawnsBlack();
+  uint64_t rooksBlack = board.getRooksBlack();
+  uint64_t bishopsBlack = board.getBishopsBlack();
+  uint64_t knightsBlack = board.getKnightsBlack();
+  uint64_t queenBlack = board.getQueensBlack();
+  uint64_t kingBlack = board.getKingsBlack();
 
   int square = 0;
 
@@ -84,12 +91,12 @@ void UI::drawPawns() {
       square = rank * 8 + file;
       position = POSITION_PIECE(rank, file);
 
-      if (pawnsBitboard >> square & 1) {
+      if (pawnsWhite >> square & 1) {
         source = CLIP_TEXTURE(PAWN_TEXTURE_OFFSET_X, WHITE_TEXTURE_OFFSET_Y);
         DrawTextureRec(piecesTexture, source, position, WHITE);
       }
 
-      else if (rooksBitboard >> square & 1) {
+      else if (rooksWhite >> square & 1) {
         source = CLIP_TEXTURE(ROOK_TEXTURE_OFFSET_X, WHITE_TEXTURE_OFFSET_Y);
         DrawTextureRec(piecesTexture, source, position, WHITE);
       }

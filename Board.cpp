@@ -40,3 +40,10 @@ uint64_t Board::getBishopsWhite() { return bishopsWhite; }
 uint64_t Board::getKnightsWhite() { return knightsWhite; }
 uint64_t Board::getQueensWhite() { return queensWhite; }
 uint64_t Board::getKingsWhite() { return kingsWhite; }
+
+uint64_t Board::getPawnsBlack() { return pawnsBlack; }
+uint64_t Board::getRooksBlack() { return rooksBlack; }
+uint64_t Board::getBishopsBlack() { return bishopsBlack; }
+uint64_t Board::getKnightsBlack() { return knightsBlack; }
+uint64_t Board::getQueensBlack() { return queensBlack; }
+uint64_t Board::getKingsBlack() { return kingsBlack; }

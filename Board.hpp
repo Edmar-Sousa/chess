@@ -34,6 +34,13 @@ class Board {
   uint64_t queensWhite;
   uint64_t kingsWhite;
 
+  uint64_t pawnsBlack;
+  uint64_t rooksBlack;
+  uint64_t knightsBlack;
+  uint64_t bishopsBlack;
+  uint64_t queensBlack;
+  uint64_t kingsBlack;
+
 public:
   Board();
 
@@ -46,6 +53,14 @@ public:
   uint64_t getKnightsWhite();
   uint64_t getQueensWhite();
   uint64_t getKingsWhite();
+
+  uint64_t getPiecesBlack();
+  uint64_t getPawnsBlack();
+  uint64_t getRooksBlack();
+  uint64_t getBishopsBlack();
+  uint64_t getKnightsBlack();
+  uint64_t getQueensBlack();
+  uint64_t getKingsBlack();
 
   void draw();
 };
