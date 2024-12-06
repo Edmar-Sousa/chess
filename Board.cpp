@@ -37,3 +37,4 @@ uint64_t Board::getRooks() { return rooksWhite; }
 uint64_t Board::getBishops() { return bishopsWhite; }
 uint64_t Board::getKnights() { return knightsWhite; }
 uint64_t Board::getQueens() { return queensWhite; }
+uint64_t Board::getKings() { return kingsWhite; }

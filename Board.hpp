@@ -45,6 +45,7 @@ public:
   uint64_t getBishops();
   uint64_t getKnights();
   uint64_t getQueens();
+  uint64_t getKings();
 
   void draw();
 };
