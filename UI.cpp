@@ -72,6 +72,7 @@ void UI::drawPawns() {
   uint64_t bishopsWhite = board.getBishops();
   uint64_t knightsWhite = board.getKnights();
   uint64_t queenWhite = board.getQueens();
+  uint64_t kingWhite = board.getKings();
 
   int square = 0;
 
@@ -105,6 +106,11 @@ void UI::drawPawns() {
 
       else if (queenWhite >> square & 1) {
         source = CLIP_TEXTURE(QUEEN_TEXTURE_OFFSET_X, WHITE_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (kingWhite >> square & 1) {
+        source = CLIP_TEXTURE(KING_TEXTURE_OFFSET_X, WHITE_TEXTURE_OFFSET_Y);
         DrawTextureRec(piecesTexture, source, position, WHITE);
       }
     }
