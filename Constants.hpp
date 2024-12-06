@@ -7,6 +7,4 @@
 #define COLS 8
 #define ROWS 8
 
-typedef unsigned long long U64;
-
 #endif
