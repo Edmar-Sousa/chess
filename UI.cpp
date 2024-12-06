@@ -70,6 +70,7 @@ void UI::drawPawns() {
   uint64_t pawnsBitboard = board.getPawns();
   uint64_t rooksBitboard = board.getRooks();
   uint64_t bishopsWhite = board.getBishops();
+  uint64_t knightsWhite = board.getKnights();
 
   int square = 0;
 
@@ -88,6 +89,11 @@ void UI::drawPawns() {
 
       else if (rooksBitboard >> square & 1) {
         source = CLIP_TEXTURE(ROOK_TEXTURE_OFFSET_X, WHITE_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (knightsWhite >> square & 1) {
+        source = CLIP_TEXTURE(KNIGHT_TEXTURE_OFFSET_X, WHITE_TEXTURE_OFFSET_Y);
         DrawTextureRec(piecesTexture, source, position, WHITE);
       }
 
