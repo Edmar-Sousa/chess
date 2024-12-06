@@ -34,3 +34,4 @@ uint64_t Board::getPieces() { return pawnsWhite & rooksWhite & knightsWhite & bi
 
 uint64_t Board::getPawns() { return pawnsWhite; }
 uint64_t Board::getRooks() { return rooksWhite; }
+uint64_t Board::getBishops() { return bishopsWhite; }
