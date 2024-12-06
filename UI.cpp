@@ -31,6 +31,7 @@ void UI::drawBoard() {
     ClearBackground(RAYWHITE);
 
     drawTiles();
+    drawPieces();
 
     EndDrawing();
     // End Draw
@@ -62,11 +63,9 @@ void UI::drawTiles() {
       index += 1;
     }
   }
-
-  drawPawns();
 }
 
-void UI::drawPawns() {
+void UI::drawPieces() {
   uint64_t pawnsWhite = board.getPawnsWhite();
   uint64_t rooksWhite = board.getRooksWhite();
   uint64_t bishopsWhite = board.getBishopsWhite();
