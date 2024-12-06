@@ -26,11 +26,11 @@
 #define POSITION_PIECE(row, col)                                                                                       \
   { (float)col *BOARD_TILE_SIZE + BOARD_LEFT_PADDING, (float)(ROWS - row - 1) * BOARD_TILE_SIZE + BOARD_TOP_PADDING }
 
-#define PAWN_TEXTURE_OFFSET_X 0
-#define PAWN_TEXTURE_OFFSET_Y 1
+#define WHITE_TEXTURE_OFFSET_Y 1
 
+#define PAWN_TEXTURE_OFFSET_X 0
 #define ROOK_TEXTURE_OFFSET_X 1
-#define ROOK_TEXTURE_OFFSET_Y 1
+#define BISHOPS_TEXTURE_OFFSET_X 2
 
 class UI {
   Board board;
