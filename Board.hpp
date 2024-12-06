@@ -38,11 +38,13 @@ public:
   Board();
 
   int *getBoard();
+
   uint64_t getPieces();
   uint64_t getPawns();
   uint64_t getRooks();
   uint64_t getBishops();
   uint64_t getKnights();
+  uint64_t getQueens();
 
   void draw();
 };
