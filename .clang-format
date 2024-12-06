@@ -1,0 +1,8 @@
+BasedOnStyle: LLVM
+IndentWidth: 2
+ColumnLimit: 120
+BraceWrapping:
+  AfterFunction: true
+  AfterControlStatement: true
+  AfterEnum: true
+  BeforeLambdaBody: true
