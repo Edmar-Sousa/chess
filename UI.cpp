@@ -120,6 +120,36 @@ void UI::drawPawns() {
         source = CLIP_TEXTURE(KING_TEXTURE_OFFSET_X, WHITE_TEXTURE_OFFSET_Y);
         DrawTextureRec(piecesTexture, source, position, WHITE);
       }
+
+      if (pawnsBlack >> square & 1) {
+        source = CLIP_TEXTURE(PAWN_TEXTURE_OFFSET_X, BLACK_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (rooksBlack >> square & 1) {
+        source = CLIP_TEXTURE(ROOK_TEXTURE_OFFSET_X, BLACK_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (knightsBlack >> square & 1) {
+        source = CLIP_TEXTURE(KNIGHT_TEXTURE_OFFSET_X, BLACK_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (bishopsBlack >> square & 1) {
+        source = CLIP_TEXTURE(BISHOPS_TEXTURE_OFFSET_X, BLACK_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (queenBlack >> square & 1) {
+        source = CLIP_TEXTURE(QUEEN_TEXTURE_OFFSET_X, BLACK_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (kingBlack >> square & 1) {
+        source = CLIP_TEXTURE(KING_TEXTURE_OFFSET_X, BLACK_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
     }
   }
 }
