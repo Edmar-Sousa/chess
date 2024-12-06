@@ -42,6 +42,7 @@ public:
   uint64_t getPawns();
   uint64_t getRooks();
   uint64_t getBishops();
+  uint64_t getKnights();
 
   void draw();
 };
