@@ -17,10 +17,20 @@
 #define BOARD_LEFT_PADDING 48
 #define BOARD_RIGHT_PADDING 12
 
-#define WINDOW_WIDTH                                                           \
-  BOARD_LEFT_PADDING + (BOARD_TILE_SIZE * COLS) + BOARD_RIGHT_PADDING
-#define WINDOW_HEIGHT                                                          \
-  BOARD_TOP_PADDING + (BOARD_TILE_SIZE * ROWS) + BOARD_BOTTOM_PADDING
+#define WINDOW_WIDTH BOARD_LEFT_PADDING + (BOARD_TILE_SIZE * COLS) + BOARD_RIGHT_PADDING
+#define WINDOW_HEIGHT BOARD_TOP_PADDING + (BOARD_TILE_SIZE * ROWS) + BOARD_BOTTOM_PADDING
+
+#define CLIP_TEXTURE(row, col)                                                                                         \
+  { row *BOARD_TILE_SIZE, col *BOARD_TILE_SIZE, BOARD_TILE_SIZE, BOARD_TILE_SIZE }
+
+#define POSITION_PIECE(row, col)                                                                                       \
+  { (float)col *BOARD_TILE_SIZE + BOARD_LEFT_PADDING, (float)(ROWS - row - 1) * BOARD_TILE_SIZE + BOARD_TOP_PADDING }
+
+#define PAWN_TEXTURE_OFFSET_X 0
+#define PAWN_TEXTURE_OFFSET_Y 1
+
+#define ROOK_TEXTURE_OFFSET_X 1
+#define ROOK_TEXTURE_OFFSET_Y 1
 
 class UI {
   Board board;
