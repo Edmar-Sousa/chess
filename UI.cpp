@@ -47,23 +47,48 @@ void UI::drawTiles() {
     for (int col = 0; col < COLS; col++) {
       house = table[index] ? whiteHouse : blackHouse;
 
-      DrawText(std::to_string(8 - col).c_str(), BOARD_LEFT_PADDING / 2,
-               POSITION_TILE(col, BOARD_TILE_SIZE / 2), BOARD_LABEL_SIZE,
-               labelColor);
+      DrawText(std::to_string(8 - col).c_str(), BOARD_LEFT_PADDING / 2, POSITION_TILE(col, BOARD_TILE_SIZE / 2),
+               BOARD_LABEL_SIZE, labelColor);
 
       char labelColumn = 'A' + col;
       char labelText[2] = {labelColumn, '\0'};
 
-      DrawText(labelText,
-               POSITION_TILE(col, BOARD_TILE_SIZE / 2 + BOARD_LEFT_PADDING),
-               WINDOW_HEIGHT - BOARD_BOTTOM_PADDING / 2, BOARD_LABEL_SIZE,
-               labelColor);
+      DrawText(labelText, POSITION_TILE(col, BOARD_TILE_SIZE / 2 + BOARD_LEFT_PADDING),
+               WINDOW_HEIGHT - BOARD_BOTTOM_PADDING / 2, BOARD_LABEL_SIZE, labelColor);
 
-      DrawRectangle(POSITION_TILE(col, BOARD_LEFT_PADDING),
-                    POSITION_TILE(row, BOARD_TOP_PADDING), BOARD_TILE_SIZE,
+      DrawRectangle(POSITION_TILE(col, BOARD_LEFT_PADDING), POSITION_TILE(row, BOARD_TOP_PADDING), BOARD_TILE_SIZE,
                     BOARD_TILE_SIZE, house);
 
       index += 1;
+    }
+  }
+
+  drawPawns();
+}
+
+void UI::drawPawns() {
+  uint64_t pawnsBitboard = board.getPawns();
+  uint64_t rooksBitboard = board.getRooks();
+
+  int square = 0;
+
+  Rectangle source;
+  Vector2 position;
+
+  for (int rank = ROWS - 1; rank >= 0; --rank) {
+    for (int file = 0; file < COLS; file++) {
+      square = rank * 8 + file;
+      position = POSITION_PIECE(rank, file);
+
+      if (pawnsBitboard >> square & 1) {
+        source = CLIP_TEXTURE(PAWN_TEXTURE_OFFSET_X, PAWN_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
+
+      else if (rooksBitboard >> square & 1) {
+        source = CLIP_TEXTURE(ROOK_TEXTURE_OFFSET_X, ROOK_TEXTURE_OFFSET_Y);
+        DrawTextureRec(piecesTexture, source, position, WHITE);
+      }
     }
   }
 }
