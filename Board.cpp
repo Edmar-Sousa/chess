@@ -30,11 +30,13 @@ void Board::draw() {
 
 int *Board::getBoard() { return this->boardColors; }
 
-uint64_t Board::getPieces() { return pawnsWhite & rooksWhite & knightsWhite & bishopsWhite & kingsWhite & queensWhite; }
+uint64_t Board::getPiecesWhite() {
+  return pawnsWhite & rooksWhite & knightsWhite & bishopsWhite & kingsWhite & queensWhite;
+}
 
-uint64_t Board::getPawns() { return pawnsWhite; }
-uint64_t Board::getRooks() { return rooksWhite; }
-uint64_t Board::getBishops() { return bishopsWhite; }
-uint64_t Board::getKnights() { return knightsWhite; }
-uint64_t Board::getQueens() { return queensWhite; }
-uint64_t Board::getKings() { return kingsWhite; }
+uint64_t Board::getPawnsWhite() { return pawnsWhite; }
+uint64_t Board::getRooksWhite() { return rooksWhite; }
+uint64_t Board::getBishopsWhite() { return bishopsWhite; }
+uint64_t Board::getKnightsWhite() { return knightsWhite; }
+uint64_t Board::getQueensWhite() { return queensWhite; }
+uint64_t Board::getKingsWhite() { return kingsWhite; }

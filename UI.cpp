@@ -67,12 +67,12 @@ void UI::drawTiles() {
 }
 
 void UI::drawPawns() {
-  uint64_t pawnsBitboard = board.getPawns();
-  uint64_t rooksBitboard = board.getRooks();
-  uint64_t bishopsWhite = board.getBishops();
-  uint64_t knightsWhite = board.getKnights();
-  uint64_t queenWhite = board.getQueens();
-  uint64_t kingWhite = board.getKings();
+  uint64_t pawnsBitboard = board.getPawnsWhite();
+  uint64_t rooksBitboard = board.getRooksWhite();
+  uint64_t bishopsWhite = board.getBishopsWhite();
+  uint64_t knightsWhite = board.getKnightsWhite();
+  uint64_t queenWhite = board.getQueensWhite();
+  uint64_t kingWhite = board.getKingsWhite();
 
   int square = 0;
 
