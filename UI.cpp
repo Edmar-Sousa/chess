@@ -3,6 +3,7 @@
 #include "Constants.hpp"
 #include <cstdint>
 #include <cstdlib>
+#include <ostream>
 #include <raylib.h>
 
 UI::UI(Board board) {
@@ -11,7 +12,9 @@ UI::UI(Board board) {
   blackHouseColor = {183, 192, 216, 255};
   whiteHouseColor = {232, 237, 249, 255};
   labelColor = {52, 54, 76, 255};
-  selectedHouseColor = {177, 166, 252};
+  selectedHouseColor = {177, 166, 252, 255};
+
+  boardState = UI_STATE::HOUSE_UNSELECTED;
 
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Chess Engine");
 
@@ -27,6 +30,9 @@ UI::~UI() {
 void UI::drawBoard() {
   while (!WindowShouldClose()) {
 
+    // Update
+    getHouseClicked();
+
     // Draw
     BeginDrawing();
     ClearBackground(RAYWHITE);
@@ -39,6 +45,28 @@ void UI::drawBoard() {
   }
 }
 
+int inline UI::clickInsideBoard(int position, int margin) {
+  return (position - margin >= 0) && (position <= BOARD_TILE_SIZE * COLS + margin);
+}
+
+void UI::calculateHouseFromPosition(Vector2 &position) {
+  int file = (position.x - BOARD_LEFT_PADDING) / BOARD_TILE_SIZE;
+  int rank = (position.y - BOARD_TOP_PADDING) / BOARD_TILE_SIZE;
+
+  boardState = UI_STATE::HOUSE_SELECTED;
+  selectedHouseX = file;
+  selectedHouseY = rank;
+}
+
+void UI::getHouseClicked() {
+  if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+    Vector2 mousePosition = GetMousePosition();
+
+    if (clickInsideBoard(mousePosition.x, BOARD_LEFT_PADDING) && clickInsideBoard(mousePosition.y, BOARD_TOP_PADDING))
+      calculateHouseFromPosition(mousePosition);
+  }
+}
+
 void UI::drawTiles() {
   int *table = board.getBoard();
   int index = 0;
@@ -48,6 +76,9 @@ void UI::drawTiles() {
   for (int row = 0; row < ROWS; row++) {
     for (int col = 0; col < COLS; col++) {
       house = table[index] ? whiteHouseColor : blackHouseColor;
+
+      if (boardState == UI_STATE::HOUSE_SELECTED && col == selectedHouseX && row == selectedHouseY)
+        house = selectedHouseColor;
 
       DrawText(std::to_string(8 - col).c_str(), BOARD_LEFT_PADDING / 2, POSITION_TILE(col, BOARD_TILE_SIZE / 2),
                BOARD_LABEL_SIZE, labelColor);

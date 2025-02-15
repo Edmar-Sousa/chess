@@ -36,6 +36,11 @@
 #define KING_TEXTURE_OFFSET_X 4
 #define QUEEN_TEXTURE_OFFSET_X 5
 
+enum UI_STATE {
+  HOUSE_UNSELECTED,
+  HOUSE_SELECTED,
+};
+
 class UI {
   Board board;
 
@@ -44,11 +49,21 @@ class UI {
   Color labelColor;
 
   Color selectedHouseColor;
+  UI_STATE boardState;
+
+  // temporary
+  int selectedHouseX = 0;
+  int selectedHouseY = 0;
 
   Texture2D piecesTexture;
 
   void drawTiles();
   void drawPieces();
+
+  void getHouseClicked();
+  int inline clickInsideBoard(int position, int margin);
+
+  void calculateHouseFromPosition(Vector2 &position);
 
   void drawPiece(int col, int row, int piece);
 
