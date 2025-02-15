@@ -8,9 +8,10 @@
 UI::UI(Board board) {
   this->board = board;
 
-  blackHouse = {183, 192, 216, 255};
-  whiteHouse = {232, 237, 249, 255};
+  blackHouseColor = {183, 192, 216, 255};
+  whiteHouseColor = {232, 237, 249, 255};
   labelColor = {52, 54, 76, 255};
+  selectedHouseColor = {177, 166, 252};
 
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Chess Engine");
 
@@ -46,7 +47,7 @@ void UI::drawTiles() {
 
   for (int row = 0; row < ROWS; row++) {
     for (int col = 0; col < COLS; col++) {
-      house = table[index] ? whiteHouse : blackHouse;
+      house = table[index] ? whiteHouseColor : blackHouseColor;
 
       DrawText(std::to_string(8 - col).c_str(), BOARD_LEFT_PADDING / 2, POSITION_TILE(col, BOARD_TILE_SIZE / 2),
                BOARD_LABEL_SIZE, labelColor);

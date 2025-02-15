@@ -39,9 +39,11 @@
 class UI {
   Board board;
 
-  Color blackHouse;
-  Color whiteHouse;
+  Color blackHouseColor;
+  Color whiteHouseColor;
   Color labelColor;
+
+  Color selectedHouseColor;
 
   Texture2D piecesTexture;
 
