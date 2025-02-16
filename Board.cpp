@@ -38,7 +38,7 @@ void Board::draw() {
 int *Board::getBoard() { return this->boardColors; }
 
 uint64_t Board::getPiecesWhite() {
-  return pawnsWhite & rooksWhite & knightsWhite & bishopsWhite & kingsWhite & queensWhite;
+  return pawnsWhite | rooksWhite | knightsWhite | bishopsWhite | kingsWhite | queensWhite;
 }
 
 uint64_t Board::getPawnsWhite() { return pawnsWhite; }
