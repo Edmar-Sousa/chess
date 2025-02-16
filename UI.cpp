@@ -1,5 +1,6 @@
 #include "UI.hpp"
 #include "Board.hpp"
+#include "BoardHouses.hpp"
 #include "Constants.hpp"
 #include <cstdint>
 #include <cstdlib>
@@ -50,12 +51,20 @@ int inline UI::clickInsideBoard(int position, int margin) {
 }
 
 void UI::calculateHouseFromPosition(Vector2 &position) {
-  int file = (position.x - BOARD_LEFT_PADDING) / BOARD_TILE_SIZE;
-  int rank = (position.y - BOARD_TOP_PADDING) / BOARD_TILE_SIZE;
+  int rank = (position.x - BOARD_LEFT_PADDING) / BOARD_TILE_SIZE;
+  int file = (position.y - BOARD_TOP_PADDING) / BOARD_TILE_SIZE;
 
-  boardState = UI_STATE::HOUSE_SELECTED;
-  selectedHouseX = file;
-  selectedHouseY = rank;
+  uint64_t whiteBitboard = board.getPiecesWhite();
+
+  // [TODO] Calculate inverted
+  BoardHouses house = static_cast<BoardHouses>(file * 8 + rank);
+
+  if (whiteBitboard >> house & 1) {
+    boardState = UI_STATE::HOUSE_SELECTED;
+    selectedHouseX = rank;
+    selectedHouseY = file;
+  }
+
 }
 
 void UI::getHouseClicked() {
