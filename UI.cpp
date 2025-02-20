@@ -56,9 +56,8 @@ void UI::calculateHouseFromPosition(Vector2 &position) {
 
   uint64_t whiteBitboard = board.getPiecesWhite();
 
-  // [TODO] Calculate inverted
-  BoardHouses house = static_cast<BoardHouses>(file * 8 + rank);
-
+  BoardHouses house = static_cast<BoardHouses>((7 - file) * 8 + 7 - rank);
+  
   if (whiteBitboard >> house & 1) {
     boardState = UI_STATE::HOUSE_SELECTED;
     selectedHouseX = rank;
