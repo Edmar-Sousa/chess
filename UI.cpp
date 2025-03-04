@@ -1,6 +1,5 @@
 #include "UI.hpp"
 #include "Board.hpp"
-#include "BoardHouses.hpp"
 #include "Constants.hpp"
 #include <cstdint>
 #include <cstdlib>
@@ -50,6 +49,14 @@ int inline UI::clickInsideBoard(int position, int margin) {
   return (position - margin >= 0) && (position <= BOARD_TILE_SIZE * COLS + margin);
 }
 
+std::ostream& operator<<(std::ostream& os, BoardHouses house) {
+  char file = (int) 'A' + 7 - (house % 8);
+  int rank = house / 8 + 1;
+
+  os << file << rank;
+  return os;
+}
+
 void UI::calculateHouseFromPosition(Vector2 &position) {
   int rank = (position.x - BOARD_LEFT_PADDING) / BOARD_TILE_SIZE;
   int file = (position.y - BOARD_TOP_PADDING) / BOARD_TILE_SIZE;
@@ -62,6 +69,8 @@ void UI::calculateHouseFromPosition(Vector2 &position) {
     boardState = UI_STATE::HOUSE_SELECTED;
     selectedHouseX = rank;
     selectedHouseY = file;
+    
+    std::cout << house << std::endl;
   }
 
 }
@@ -98,7 +107,7 @@ void UI::drawTiles() {
                WINDOW_HEIGHT - BOARD_BOTTOM_PADDING / 2, BOARD_LABEL_SIZE, labelColor);
 
       DrawRectangle(POSITION_TILE(col, BOARD_LEFT_PADDING), POSITION_TILE(row, BOARD_TOP_PADDING), BOARD_TILE_SIZE,
-                    BOARD_TILE_SIZE, house);
+        BOARD_TILE_SIZE, house);
 
       index += 1;
     }

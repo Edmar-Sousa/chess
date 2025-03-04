@@ -2,8 +2,10 @@
 #define __UI_HPP__
 
 #include "Board.hpp"
+#include "BoardHouses.hpp"
 #include "Constants.hpp"
 #include <raylib.h>
+#include <ostream>
 
 #define FPS 60
 #define POSITION_TILE(pos, padding) pos *BOARD_TILE_SIZE + padding
